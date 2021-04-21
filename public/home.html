@@ -7,28 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
     <script src="./fetch.js"></script>
+    <link rel="stylesheet" href="home.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <h1>Hoepage</h1>
+    <div id="header">Homepage</div>
     <h3>Add a task</h3>
     <form action='http://localhost:3000/addpost' method='POST'>
-        <label>Name:</label><input type="text" name="name" id="name" required>
-        <label>Deadline:</label><input type="text" name="time" id="dedline" required>
+        <label>Name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <label>Deadline:</label>
+        <input type="text" name="time" id="dedline" required>
+
         <input type="submit" value="Add todo">
     </form>
 
     <h3>Update a post</h3>
     <form action='http://localhost:3000/update' method='POST'>
-        Old Task: <input type='text' name='oname' required><br>
-        new Task: <input type='text' name='name' required><br>
-        new Deadline: <input type='text' name='time' required><br>
+        <label>Old Task: </label>
+        <input type='text' name='oname' required>
+
+        <label>New Task: </label>
+        <input type='text' name='name' required>
+
+        <label>New Deadline: </label>
+        <input type='text' name='time' required>
+
         <input type="submit" value="Update">
     </form>
 
     <h3>Delete a post</h3>
     <form action='http://localhost:3000/delete' method='POST'>
-        Task name: <input type='text' name='oname' required><br>
+
+        <label>Task name:</label> <input type='text' name='oname' required>
+
         <input type="submit" value="Delete">
     </form>
 

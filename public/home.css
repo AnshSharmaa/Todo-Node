@@ -1,0 +1,29 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #85dcbe;
+}
+
+#header {
+    width: 100%;
+    color: #282828;
+    background-color: #2b98ff;
+    font-size:4em;
+    font-weight: 900;
+}
+
+label {
+    font-size: large;
+    color: #e26363;
+    font-weight: 600;
+}
+
+input {
+    background-color: #f1e7e7;
+}
+
+span {
+    color: #171717;
+    font-size: large;
+    font-weight: 600;
+    padding: 10px;
+}
