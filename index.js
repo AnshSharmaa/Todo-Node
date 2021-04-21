@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 app.post('/addpost', (req, res) => {
     var todo = {
         name: req.body.name,
-        deadline: req.body.dedline,
+        deadline: req.body.time,
     }
 
     MongoClient.connect(url, (err,client)=>{
@@ -36,7 +36,7 @@ app.post('/update', (req, res) => {
     }
     var todo = {
         name: req.body.name,
-        time: req.body.dedline,
+        deadline: req.body.time,
     }
     MongoClient.connect(url, (err, client) => {
         if (err) throw err;
@@ -65,6 +65,17 @@ app.post('/delete', (req, res) => {
     })
     res.sendFile('./home.html', { root: './public' });
 });
+
+app.get('/todos', (req,res)=>{
+    MongoClient.connect(url, (err,client)=>{
+        if (err) throw err
+        db = client.db('demo');
+        db.collection('todo').find({}).toArray((err,result)=>{
+            if (err) throw err;
+            res.send(result);
+        })
+    })
+})
 
 app.listen(3000, () => {
     console.log('server 3000');

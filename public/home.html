@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo</title>
+    <script src="./fetch.js"></script>
 </head>
 
 <body>
@@ -13,7 +14,7 @@
     <h3>Add a task</h3>
     <form action='http://localhost:3000/addpost' method='POST'>
         <label>Name:</label><input type="text" name="name" id="name" required>
-        <label>Deadline:</label><input type="text" name="dedline" id="dedline" required>
+        <label>Deadline:</label><input type="text" name="time" id="dedline" required>
         <input type="submit" value="Add todo">
     </form>
 
@@ -21,7 +22,7 @@
     <form action='http://localhost:3000/update' method='POST'>
         Old Task: <input type='text' name='oname' required><br>
         new Task: <input type='text' name='name' required><br>
-        new Deadline: <input type='text' name='dedline' required><br>
+        new Deadline: <input type='text' name='time' required><br>
         <input type="submit" value="Update">
     </form>
 
@@ -31,6 +32,9 @@
         <input type="submit" value="Delete">
     </form>
 
+    <div id="todos">
+
+    </div>
 </body>
 
 </html>
