@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express();
 
+const MongoClient = require('mongodb');
+const url = 'mongodb://127.0.0.1:27017';
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
@@ -12,9 +14,20 @@ app.get('/', (req, res) => {
 app.post('/addpost', (req, res) => {
     var todo = {
         name: req.body.name,
-        deadline: req.body.time,
+        deadline: req.body.dedline,
     }
-    console.log(todo)
+
+    MongoClient.connect(url, (err,client)=>{
+        if(err)throw err;
+        db = client.db('demo');
+        db.collection('todo').insertOne(todo, (err, res) => {
+            if (err) throw err;
+
+            console.log(todo);
+            client.close();
+        })
+    })
+
     res.sendFile('./home.html', { root: './public' });
 })
 
