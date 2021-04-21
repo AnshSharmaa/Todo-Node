@@ -9,6 +9,15 @@ app.get('/', (req, res) => {
     res.sendFile('./home.html', { root: './public' });
 })
 
+app.post('/addpost', (req, res) => {
+    var todo = {
+        name: req.body.name,
+        deadline: req.body.time,
+    }
+    console.log(todo)
+    res.sendFile('./home.html', { root: './public' });
+})
+
 app.listen(3000, () => {
     console.log('server 3000');
 })
