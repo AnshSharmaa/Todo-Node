@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", getdata());
 
-function getdata(){
+function getdata() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -14,17 +14,17 @@ function getdata(){
     xhttp.send();
 }
 
-function separate(res){
+function separate(res) {
     JSON.parse(res).forEach(e => {
         build(e);
     });
 }
 
-function build(e){
+function build(e) {
     var main = document.getElementById("todos");
     //ndiv houses result of a day
     var ndiv = document.createElement("div");
     ndiv.classList.add("ndiv");
-    ndiv.innerHTML = `<span>Name: ${e.name}</span>&nbsp;&nbsp;&nbsp;<span>Deadline: ${e.deadline}</span>`
+    ndiv.innerHTML = `<div id="spans"><label>Name: </label><span>${e.name}</span><label>Deadline: <label><span>${e.deadline}</span></div>`
     main.appendChild(ndiv);
 }

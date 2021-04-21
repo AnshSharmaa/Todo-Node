@@ -15,39 +15,47 @@
 </head>
 
 <body>
-    <div id="header">Homepage</div>
-    <h3>Add a task</h3>
-    <form action='http://localhost:3000/addpost' method='POST'>
-        <label>Name:</label>
-        <input type="text" name="name" id="name" required>
+    <div id="header">Todo App</div>
+    <br>
+    <div id='forms'>
+        <form action='http://localhost:3000/addpost' method='POST'>
+            <h2>Add a task</h2>
+            <div id='formItems'>
+                <label>Name:</label>
+                <input type="text" name="name" id="name" required>
 
-        <label>Deadline:</label>
-        <input type="text" name="time" id="dedline" required>
+                <label>Deadline:</label>
+                <input type="text" name="time" id="dedline" required>
 
-        <input type="submit" value="Add todo">
-    </form>
+                <input type="submit" value="Add todo">
+            </div>
+        </form>
 
-    <h3>Update a post</h3>
-    <form action='http://localhost:3000/update' method='POST'>
-        <label>Old Task: </label>
-        <input type='text' name='oname' required>
+        <form action='http://localhost:3000/update' method='POST'>
+            <h2>Update a task</h2>
+            <div id='formItems'>
+                <label>Old Task: </label>
+                <input type='text' name='oname' required>
 
-        <label>New Task: </label>
-        <input type='text' name='name' required>
+                <label>New Task: </label>
+                <input type='text' name='name' required>
 
-        <label>New Deadline: </label>
-        <input type='text' name='time' required>
+                <label>New Deadline: </label>
+                <input type='text' name='time' required>
 
-        <input type="submit" value="Update">
-    </form>
+                <input type="submit" value="Update">
+            </div>
+        </form>
 
-    <h3>Delete a post</h3>
-    <form action='http://localhost:3000/delete' method='POST'>
+        <form action='http://localhost:3000/delete' method='POST'>
+            <h2>Delete a task</h2>
+            <div id='formItems'>
+                <label>Task name:</label> <input type='text' name='oname' required>
 
-        <label>Task name:</label> <input type='text' name='oname' required>
-
-        <input type="submit" value="Delete">
-    </form>
+                <input type="submit" value="Delete">
+            </div>
+        </form>
+    </div>
 
     <div id="todos">
 
