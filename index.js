@@ -22,7 +22,6 @@ app.post('/addpost', (req, res) => {
         db = client.db('demo');
         db.collection('todo').insertOne(todo, (err, res) => {
             if (err) throw err;
-
             console.log(todo);
             client.close();
         })
@@ -30,6 +29,42 @@ app.post('/addpost', (req, res) => {
 
     res.sendFile('./home.html', { root: './public' });
 })
+
+app.post('/update', (req, res) => {
+    var old = {
+        name: req.body.oname,
+    }
+    var todo = {
+        name: req.body.name,
+        time: req.body.dedline,
+    }
+    MongoClient.connect(url, (err, client) => {
+        if (err) throw err;
+
+        db = client.db('demo');
+        db.collection('todo').update(old, todo, (err, res) => {
+            if (err) throw err;
+            client.close();
+        })
+    })
+    res.sendFile('./home.html', { root: './public' });
+});
+
+app.post('/delete', (req, res) => {
+    var old = {
+        name: req.body.oname,
+    }
+    MongoClient.connect(url, (err, client) => {
+
+        if (err) throw err;
+        db = client.db('demo');
+        db.collection('todo').deleteOne(old, (err, res) => {
+            if (err) throw err;
+            client.close();
+        })
+    })
+    res.sendFile('./home.html', { root: './public' });
+});
 
 app.listen(3000, () => {
     console.log('server 3000');
